@@ -165,7 +165,7 @@ A natural question that might be asked is why not to rely completely on [Apache 
 
 2) **Direct failure detection** - when using ZK's group membership with ephemeral nodes the failure detection is performed between the Orleans servers (ZK clients) and ZK servers. This may not necessarily correlate with the actual network problems between Orleans servers. _Our desire was that the failure detection would accurately reflect the intra-cluster state of the communication._ Specifically, in our design, if an Orleans silo cannot communicate with the `MembershipTable` it is not considered dead and can keep working. As opposite to that, have we used ZK group membership with ephemeral nodes a disconnection from a ZK server may cause an Orleans silo (ZK client) to be declared dead, while it may actually be alive and fully functional.
 
-3) **Portability and flexibility** - as part of Orleans's philosophy, we do not want to force a strong dependence on any particular technology, but rather have a flexible design where different components can be easily switched with different implementations. This is exactly the purpuse that `MembershipTable` abstraction serves.
+3) **Portability and flexibility** - as part of Orleans's philosophy, we do not want to force a strong dependence on any particular technology, but rather have a flexible design where different components can be easily switched with different implementations. This is exactly the purpose that `MembershipTable` abstraction serves.
 
 
 ### Acknowledgements:
